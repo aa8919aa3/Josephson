@@ -14,13 +14,10 @@ try:
     plt.style.use('default')
     plt.rcParams['font.size'] = 10
     plt.rcParams['figure.dpi'] = 100
+    MATPLOTLIB_AVAILABLE = True
 except ImportError:
     print("警告：matplotlib 不可用，將跳過視覺化功能")
-    plt = None
-
-plt.style.use('default')
-plt.rcParams['font.size'] = 10
-plt.rcParams['figure.dpi'] = 100
+    MATPLOTLIB_AVAILABLE = False
 
 def analyze_best_file():
     """分析表現最佳的檔案"""
@@ -59,7 +56,7 @@ def analyze_best_file():
     # 計算統計量
     correlation, p_value = pearsonr(exp_Ic, sim_Ic)
     
-    if plt is None:
+    if not MATPLOTLIB_AVAILABLE:
         print(f"分析結果：相關係數 = {correlation:.4f}, p-值 = {p_value:.4f}")
         return
     
@@ -196,7 +193,7 @@ def compare_all_improvements():
                 correlations.append(corr)
                 print(f"  {filename}: {corr:.4f}")
         
-        if correlations:
+        if correlations and MATPLOTLIB_AVAILABLE:
             print(f"\\n總結：")
             print(f"  平均相關係數: {np.mean(correlations):.4f}")
             print(f"  最高相關係數: {np.max(correlations):.4f}")
@@ -218,17 +215,25 @@ def compare_all_improvements():
             ax.axhline(y=0, color='red', linestyle='--', alpha=0.8)
             
             # 標記最佳檔案
-            if plt is not None:
-                best_idx = np.argmax(correlations_all)
-                bars[best_idx].set_color('orange')
-                ax.text(float(best_idx), correlations_all[best_idx] + 0.01, 'BEST', 
-                       ha='center', va='bottom', fontweight='bold')
-                
-                plt.tight_layout()
-                comparison_file = results_dir / "correlation_comparison.png"
-                plt.savefig(comparison_file, dpi=150, bbox_inches='tight')
-                print(f"\\n比較圖表已保存到: {comparison_file}")
-                plt.show()
+            best_idx = np.argmax(correlations_all)
+            bars[best_idx].set_color('orange')
+            ax.text(float(best_idx), correlations_all[best_idx] + 0.01, 'BEST', 
+                   ha='center', va='bottom', fontweight='bold')
+            
+            plt.tight_layout()
+            
+            comparison_file = results_dir / "correlation_comparison.png"
+            plt.savefig(comparison_file, dpi=150, bbox_inches='tight')
+            print(f"\\n比較圖表已保存到: {comparison_file}")
+            plt.show()
+        elif correlations:
+            print(f"\\n總結：")
+            print(f"  平均相關係數: {np.mean(correlations):.4f}")
+            print(f"  最高相關係數: {np.max(correlations):.4f}")
+            print(f"  最低相關係數: {np.min(correlations):.4f}")
+            print(f"  標準差: {np.std(correlations):.4f}")
+    else:
+        print("找不到改進結果檔案")
 
 if __name__ == "__main__":
     analyze_best_file()

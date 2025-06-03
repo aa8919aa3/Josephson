@@ -8,7 +8,11 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import plotly.io as pio
 from scipy import stats
+
+# 設定 Plotly 為非互動模式，避免終端輸出問題
+pio.renderers.default = "json"
 
 class ModelStatistics:
     """

@@ -3,10 +3,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import plotly.io as pio
 from astropy.timeseries import LombScargle
 from .utils.lmfit_tools import lmfit_curve_fit, curve_fit_compatible
 import warnings
 warnings.filterwarnings('ignore')
+
+# 設定 Plotly 為非互動模式，避免終端輸出問題
+pio.renderers.default = "json"
 
 class JosephsonAnalyzer:
     """

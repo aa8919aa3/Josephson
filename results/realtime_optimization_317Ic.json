@@ -1,0 +1,28 @@
+{
+  "bayesian": {
+    "final_correlation": -0.1089100351012795,
+    "optimization_time": 0.8990647792816162,
+    "best_parameters": {
+      "Ic_base": 2.9932381638343768e-05,
+      "field_scale": 1.08002438051797e-08,
+      "phase_offset": 2.2673005562417674,
+      "asymmetry": 0.4302460190426418,
+      "noise_level": 1.7692831552181346e-06
+    },
+    "total_iterations": 23,
+    "convergence_achieved": false
+  },
+  "differential": {
+    "final_correlation": 0.14677983183952986,
+    "optimization_time": 2.013258934020996,
+    "best_parameters": {
+      "Ic_base": 8.0070902070662e-05,
+      "field_scale": 4.815648289851796e-05,
+      "phase_offset": 4.368077463995245,
+      "asymmetry": 0.031827818990201595,
+      "noise_level": 2.788396762303827e-06
+    },
+    "total_iterations": 30,
+    "convergence_achieved": false
+  }
+}

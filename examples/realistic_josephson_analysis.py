@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import plotly.io as pio
 from astropy.timeseries import LombScargle
 import sys
 from pathlib import Path
@@ -10,6 +11,9 @@ from josephson_analysis.utils.lmfit_tools import curve_fit_compatible
 from scipy import stats
 import warnings
 warnings.filterwarnings('ignore')
+
+# 設定 Plotly 為非互動模式，避免終端輸出問題
+pio.renderers.default = "json"
 
 # 您提供的物理參數
 JOSEPHSON_PARAMS = {

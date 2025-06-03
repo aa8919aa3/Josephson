@@ -10,7 +10,11 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
+import plotly.io as pio
 from typing import Optional, Tuple, Dict, Any
+
+# 設定 Plotly 為非互動模式，避免終端輸出問題
+pio.renderers.default = "json"
 
 
 def plot_period_spectrum(frequency: np.ndarray, power: np.ndarray,

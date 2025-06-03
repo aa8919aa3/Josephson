@@ -27,7 +27,7 @@ def main():
         'phi_0': np.pi / 4,     # 相位偏移
         'f': 5e4,               # 週期頻率 50 kHz
         'T': 0.8,               # 非線性參數
-        'k': -0.01,             # 二次項係數
+        'k': -0.00,             # 二次項係數
         'r': 5e-3,              # 線性項係數
         'C': 10.0e-6,           # 常數項 10 μA
         'd': -10.0e-3,          # 偏移量
@@ -42,7 +42,7 @@ def main():
     print(f"\n🔬 步驟 1: 生成模擬數據")
     data = analyzer.generate_flux_sweep_data(
         phi_range=(-20e-5, 0e-5),
-        n_points=1000,
+        n_points=1001,
         model_type="both",
         **params
     )
@@ -88,7 +88,3 @@ def main():
 
 if __name__ == "__main__":
     analyzer = main()
-
-
-
-

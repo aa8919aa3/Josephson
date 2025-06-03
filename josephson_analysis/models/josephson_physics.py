@@ -9,8 +9,12 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import plotly.io as pio
 import warnings
 warnings.filterwarnings('ignore')
+
+# 設定 Plotly 為非互動模式，避免終端輸出問題
+pio.renderers.default = "json"
 
 # 導入 lmfit 工具
 from ..utils.lmfit_tools import lmfit_curve_fit, curve_fit_compatible
@@ -347,8 +351,39 @@ class JosephsonPeriodicAnalyzer:
             initial_guess = [self.default_params[name] for name in param_names if name != 'T']
         
         try:
-            # 準備 lmfit 參數
-            initial_params = {name: val for name, val in zip(param_names, initial_guess)}
+            # 準備 lmfit 參數並設置合理的邊界約束
+            initial_params = {}
+            for name, val in zip(param_names, initial_guess):
+                if name == 'Ic':
+                    # 臨界電流：允許 ±50% 變化
+                    initial_params[name] = (val, val * 0.5, val * 1.5)
+                elif name == 'phi_0':
+                    # 相位偏移：允許 ±π 範圍內變化
+                    initial_params[name] = (val, -np.pi, np.pi)
+                elif name == 'f':
+                    # 頻率參數：允許 ±30% 變化
+                    initial_params[name] = (val, val * 0.7, val * 1.3)
+                elif name == 'T':
+                    # 非線性參數：物理約束在 [0, 1] 範圍內
+                    initial_params[name] = (val, 0.1, 1.0)
+                elif name == 'k':
+                    # 二次項係數：允許符號變化但限制幅度
+                    initial_params[name] = (val, val * 10 if val < 0 else -abs(val) * 10, 
+                                          val * 10 if val > 0 else abs(val) * 10)
+                elif name == 'r':
+                    # 線性項係數：允許符號變化但限制幅度
+                    initial_params[name] = (val, val * 10 if val < 0 else -abs(val) * 10, 
+                                          val * 10 if val > 0 else abs(val) * 10)
+                elif name == 'C':
+                    # 常數項：嚴格限制在 ±10% 範圍內以防止漂移
+                    initial_params[name] = (val, val * 0.9, val * 1.1)
+                elif name == 'd':
+                    # 偏移量：允許 ±50% 變化
+                    initial_params[name] = (val, val * 1.5 if val < 0 else val * 0.5, 
+                                          val * 0.5 if val < 0 else val * 1.5)
+                else:
+                    # 其他參數：無約束
+                    initial_params[name] = val
             
             # 執行非線性擬合（使用 L-BFGS-B 演算法）
             best_params, param_errors, fitted_current, fit_report = lmfit_curve_fit(
