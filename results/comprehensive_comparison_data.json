@@ -1,0 +1,158 @@
+{
+  "comparison_table": [
+    {
+      "filename": "335Ic.csv",
+      "basic_correlation": -0.05224880437400486,
+      "advanced_correlation": -0.04961460601937183,
+      "ml_correlation": 0.0010120058500024866,
+      "basic_to_advanced": 0.0026341983546330286,
+      "basic_to_ml": 0.053260810224007346,
+      "advanced_to_ml": 0.05062661186937432
+    },
+    {
+      "filename": "kay164Ic+.csv",
+      "basic_correlation": -0.012924339517676454,
+      "advanced_correlation": -0.0009542876445818357,
+      "ml_correlation": NaN,
+      "basic_to_advanced": 0.011970051873094618,
+      "basic_to_ml": NaN,
+      "advanced_to_ml": NaN
+    },
+    {
+      "filename": "337Ic.csv",
+      "basic_correlation": 0.10296868977164608,
+      "advanced_correlation": 0.0561771233112468,
+      "ml_correlation": -0.015426913169387511,
+      "basic_to_advanced": -0.04679156646039928,
+      "basic_to_ml": -0.1183956029410336,
+      "advanced_to_ml": -0.07160403648063432
+    },
+    {
+      "filename": "317Ic.csv",
+      "basic_correlation": 0.13696750514808384,
+      "advanced_correlation": 0.034829094333882905,
+      "ml_correlation": -0.0016614858362027666,
+      "basic_to_advanced": -0.10213841081420094,
+      "basic_to_ml": -0.1386289909842866,
+      "advanced_to_ml": -0.03649058017008567
+    },
+    {
+      "filename": "352Ic.csv",
+      "basic_correlation": -0.09914454881446431,
+      "advanced_correlation": -0.026524206264133782,
+      "ml_correlation": NaN,
+      "basic_to_advanced": 0.07262034255033054,
+      "basic_to_ml": NaN,
+      "advanced_to_ml": NaN
+    },
+    {
+      "filename": "kay164Ic-.csv",
+      "basic_correlation": 0.03025973663313311,
+      "advanced_correlation": -0.025518660951093695,
+      "ml_correlation": NaN,
+      "basic_to_advanced": -0.055778397584226806,
+      "basic_to_ml": NaN,
+      "advanced_to_ml": NaN
+    },
+    {
+      "filename": "336Ic.csv",
+      "basic_correlation": -4.3756160751683496e-05,
+      "advanced_correlation": 0.060219317180597254,
+      "ml_correlation": NaN,
+      "basic_to_advanced": 0.060263073341348936,
+      "basic_to_ml": NaN,
+      "advanced_to_ml": NaN
+    },
+    {
+      "filename": "439Ic.csv",
+      "basic_correlation": 0.012253372660820327,
+      "advanced_correlation": -0.10996088416224542,
+      "ml_correlation": NaN,
+      "basic_to_advanced": -0.12221425682306575,
+      "basic_to_ml": NaN,
+      "advanced_to_ml": NaN
+    },
+    {
+      "filename": "346Ic.csv",
+      "basic_correlation": 0.05924731246173949,
+      "advanced_correlation": 0.08249122131936817,
+      "ml_correlation": NaN,
+      "basic_to_advanced": 0.023243908857628684,
+      "basic_to_ml": NaN,
+      "advanced_to_ml": NaN
+    },
+    {
+      "filename": "435Ic.csv",
+      "basic_correlation": -0.07770957142494424,
+      "advanced_correlation": -0.05877380926600793,
+      "ml_correlation": NaN,
+      "basic_to_advanced": 0.01893576215893631,
+      "basic_to_ml": NaN,
+      "advanced_to_ml": NaN
+    },
+    {
+      "filename": "338Ic.csv",
+      "basic_correlation": -0.09145069642132751,
+      "advanced_correlation": 0.006281736794889995,
+      "ml_correlation": NaN,
+      "basic_to_advanced": 0.09773243321621751,
+      "basic_to_ml": NaN,
+      "advanced_to_ml": NaN
+    },
+    {
+      "filename": "341Ic.csv",
+      "basic_correlation": -0.09367497303524919,
+      "advanced_correlation": 0.08910534945974177,
+      "ml_correlation": NaN,
+      "basic_to_advanced": 0.18278032249499096,
+      "basic_to_ml": NaN,
+      "advanced_to_ml": NaN
+    }
+  ],
+  "ml_correlations": {
+    "335Ic.csv": {
+      "correlation": 0.0010120058500024866,
+      "p_value": 0.99016041809843,
+      "parameters": {
+        "Ic_base": 1.094051794489449e-05,
+        "field_scale": 1.83185853243334e-06,
+        "phase_offset": 5.483358224597346,
+        "asymmetry": 0.13688244862498888,
+        "noise_level": 5.168102160109108e-07,
+        "predicted_correlation": 0.2897364764236111
+      }
+    },
+    "337Ic.csv": {
+      "correlation": -0.015426913169387511,
+      "p_value": 0.85087274870268,
+      "parameters": {
+        "Ic_base": 2.7987701866113294e-06,
+        "field_scale": 4.499362593057878e-06,
+        "phase_offset": 1.5053734043038582,
+        "asymmetry": -0.08172877486766744,
+        "noise_level": 2.2142397292846065e-07,
+        "predicted_correlation": 0.32156447222570644
+      }
+    },
+    "317Ic.csv": {
+      "correlation": -0.0016614858362027666,
+      "p_value": 0.9838463082753571,
+      "parameters": {
+        "Ic_base": 1.985590493690574e-05,
+        "field_scale": 7.098318241670938e-06,
+        "phase_offset": 3.149240183872237,
+        "asymmetry": 0.1254913918302042,
+        "noise_level": 5.473821618490448e-07,
+        "predicted_correlation": 0.3313944941571373
+      }
+    }
+  },
+  "summary_stats": {
+    "basic_mean": -0.007125006089416283,
+    "advanced_mean": 0.0048131156743577005,
+    "ml_mean": -0.005358797718529265,
+    "basic_std": 0.07933423447664903,
+    "advanced_std": 0.061691568123643056,
+    "ml_std": 0.008821116765915191
+  }
+}

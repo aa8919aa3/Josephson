@@ -1,0 +1,26 @@
+{
+  "335Ic.csv": {
+    "Ic_base": 1.094051794489449e-05,
+    "field_scale": 1.83185853243334e-06,
+    "phase_offset": 5.483358224597346,
+    "asymmetry": 0.13688244862498888,
+    "noise_level": 5.168102160109108e-07,
+    "predicted_correlation": 0.2897364764236111
+  },
+  "337Ic.csv": {
+    "Ic_base": 2.7987701866113294e-06,
+    "field_scale": 4.499362593057878e-06,
+    "phase_offset": 1.5053734043038582,
+    "asymmetry": -0.08172877486766744,
+    "noise_level": 2.2142397292846065e-07,
+    "predicted_correlation": 0.32156447222570644
+  },
+  "317Ic.csv": {
+    "Ic_base": 1.985590493690574e-05,
+    "field_scale": 7.098318241670938e-06,
+    "phase_offset": 3.149240183872237,
+    "asymmetry": 0.1254913918302042,
+    "noise_level": 5.473821618490448e-07,
+    "predicted_correlation": 0.3313944941571373
+  }
+}

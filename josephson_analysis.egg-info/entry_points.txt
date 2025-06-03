@@ -1,0 +1,2 @@
+[console_scripts]
+josephson-analyze = josephson_analysis.cli:main

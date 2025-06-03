@@ -1,0 +1,31 @@
+# 核心科學計算
+numpy>=1.19.0
+pandas>=1.3.0
+scipy>=1.7.0
+
+# 天文分析
+astropy>=4.0.0
+
+# 視覺化
+plotly>=5.0.0
+matplotlib>=3.3.0
+
+# 擬合和優化
+lmfit>=1.0.0
+
+# 測試
+pytest>=6.0.0
+pytest-cov>=2.10.0
+
+# 文檔
+sphinx>=4.0.0
+sphinx-rtd-theme>=0.5.0
+
+# 開發工具
+black>=21.0.0
+flake8>=3.8.0
+isort>=5.0.0
+
+# Jupyter 支援
+jupyter>=1.0.0
+ipywidgets>=7.6.0
