@@ -155,8 +155,8 @@ def analyze_best_file():
     # 保存分析結果
     analysis_results = {
         'filename': filename,
-        'correlation': float(correlation if not np.isnan(correlation) else 0.0),
-        'p_value': float(p_value if not np.isnan(p_value) else 1.0),
+        'correlation': float(correlation),
+        'p_value': float(p_value),
         'exp_stats': {
             'mean': float(np.mean(exp_Ic)),
             'std': float(np.std(exp_Ic)),
@@ -218,17 +218,16 @@ def compare_all_improvements():
             ax.axhline(y=0, color='red', linestyle='--', alpha=0.8)
             
             # 標記最佳檔案
-            if plt is not None:
-                best_idx = np.argmax(correlations_all)
-                bars[best_idx].set_color('orange')
-                ax.text(float(best_idx), correlations_all[best_idx] + 0.01, 'BEST', 
-                       ha='center', va='bottom', fontweight='bold')
-                
-                plt.tight_layout()
-                comparison_file = results_dir / "correlation_comparison.png"
-                plt.savefig(comparison_file, dpi=150, bbox_inches='tight')
-                print(f"\\n比較圖表已保存到: {comparison_file}")
-                plt.show()
+            best_idx = np.argmax(correlations_all)
+            bars[best_idx].set_color('orange')
+            ax.text(best_idx, correlations_all[best_idx] + 0.01, 'BEST', 
+                   ha='center', va='bottom', fontweight='bold')
+            
+            plt.tight_layout()
+            comparison_file = results_dir / "correlation_comparison.png"
+            plt.savefig(comparison_file, dpi=150, bbox_inches='tight')
+            print(f"\\n比較圖表已保存到: {comparison_file}")
+            plt.show()
 
 if __name__ == "__main__":
     analyze_best_file()
